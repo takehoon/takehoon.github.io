@@ -1,0 +1,22 @@
+---
+layout: page
+title: Categories
+permalink: /categories/
+background: '/img/bg-post.jpg'
+---
+
+{% if site.posts.size == 0 %} 
+<h2>Empty</h2>
+{% endif %} 
+{% for category in site.categories %} 
+    <article class="post-preview">
+        {% for categoryName in category[0] %} 
+            {% if categoryName != null %}
+                <a href="/categories/{{categoryName}}">
+                    <h2 class="post-title">{{categoryName}}</h2>
+                </a>
+                <p class="post-meta"> posts : {{category[1].size}}</p>
+            {% endif %}
+        {% endfor %} 
+    </article>
+{% endfor %}

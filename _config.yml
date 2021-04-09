@@ -1,0 +1,25 @@
+title:              Takehoon's Story
+email:              tuetwo0721@gmail.com
+description:        28살에 다시 시작하는 개발 이야기
+author:             Takehoon
+baseurl:            ""
+url:                "https://takehoon.github.io"
+
+# Social Profiles
+twitter_username:   
+github_username:    takehoon
+facebook_username:  
+instagram_username:  
+linkedin_username:
+
+# Add your google-analytics ID here to activate google analytics
+google_analytics:   UA-XXXXXXXXX-X # out your google-analytics code
+
+# Build settings
+markdown:           kramdown
+paginate:           5
+paginate_path:      "/posts/page:num/"
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap ## Uncomment this line to silently generate a sitemaps.org compliant sitemap for your Jekyll site
