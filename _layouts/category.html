@@ -1,7 +1,8 @@
 ---
 layout: page
 --- 
-{% for post in site.categories[page.title] %} 
+{% assign pageTitle = page.title | downcase %}
+{% for post in site.categories[pageTitle] %} 
 <article class="post-preview">
     <a href="{{post.url | prepend: site.baseurl | replace: '//', '/'}}">
         <h2 class="post-title">{{post.title}}</h2>
