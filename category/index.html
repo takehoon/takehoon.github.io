@@ -13,7 +13,7 @@ background: '/img/bg-post.jpg'
         {% for categoryName in category[0] %} 
             {% if categoryName != null %}
                 <a href="/categories/{{categoryName}}">
-                    <h2 class="post-title">{{categoryName}}</h2>
+                    <h2 class="post-title" style="text-transform:uppercase">{{categoryName}}</h2>
                 </a>
                 <p class="post-meta"> posts : {{category[1].size}}</p>
             {% endif %}
