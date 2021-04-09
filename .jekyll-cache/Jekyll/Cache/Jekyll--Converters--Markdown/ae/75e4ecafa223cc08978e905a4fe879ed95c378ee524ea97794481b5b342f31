@@ -1,0 +1,125 @@
+I"�<h1 id="html-기초-빠르게-찍어먹기-2---목록-테이블-tag">HTML 기초 빠르게 찍어먹기 2 - (목록, 테이블 tag)</h1>
+<p>이전 <a href="https://takehoon.github.io/html/2021/04/09/html기초빠르게찍어먹기1">HTML 기초 빠르게 찍어먹기 1</a>에서 기본적인 HTML 구조와 제목 및 본문 tag 에 대해 알아보았습니다. 이번 section에서는 메뉴와 테이블과 관련된 태그에 대해서 알아보도록 하겠습니다.</p>
+
+<h3 id="1-목록-tag">1. 목록 tag</h3>
+<p>목록 tag는 순서가 있는 목록과 순서가 없는 목록이 있습니다.
+순서가 없는 목록부터 살펴보자면,</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ul&gt;</span>
+    <span class="nt">&lt;li&gt;</span>Apple<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>Samsung<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>Naver<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>KaKao<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre></div></div>
+<blockquote>
+  <p>결과</p>
+</blockquote>
+<ul>
+    <li>Apple</li>
+    <li>Samsung</li>
+    <li>Naver</li>
+    <li>KaKao</li>
+</ul>
+<p><br />
+과 같이 dot이 목록을 구별합니다.</p>
+
+<p>반면, 순서가 있는 목록은,</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ol&gt;</span>
+    <span class="nt">&lt;li&gt;</span>Apple<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>Samsung<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>Naver<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>KaKao<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ol&gt;</span>
+</code></pre></div></div>
+<blockquote>
+  <p>결과</p>
+</blockquote>
+<ol>
+    <li>Apple</li>
+    <li>Samsung</li>
+    <li>Naver</li>
+    <li>KaKao</li>
+</ol>
+<p><br /></p>
+
+<h3 id="2-테이블-tag">2. 테이블 Tag</h3>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;table&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;th&gt;</span>header 1<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;th&gt;</span>header 2<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>Data 1-1<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>Data 2-1<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>   
+        <span class="nt">&lt;td&gt;</span>Data 1-2<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>Data 2-2<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;table&gt;</span>
+</code></pre></div></div>
+<blockquote>
+  <p>결과</p>
+</blockquote>
+<table>
+    <tr>
+        <th>header 1</th>
+        <th>header 2</th>
+    </tr>
+    <tr>
+        <td>Data 1-1</td>
+        <td>Data 2-1</td>
+    </tr>
+    <tr>   
+        <td>Data 1-2</td>
+        <td>Data 2-2</td>
+    </tr>
+<table>
+
+즉, `<table>` tag 로 시작하며, 각 행은 `<tr>` tag 로 구분하고 헤더 칼럼은 `<th>` tag 로, 셀은 `<td>` tag 로 표현합니다.
+
+이를 응용하여 다음 코드를 살펴보도록하겠습니다.
+```html
+<table>
+    <tr>
+        <th colspan="3">Table Data</th>
+        <th rowspan="3">Table Data</th>
+    </tr>
+    <tr>
+        <td>Table Data</td>
+        <td rowspan="2">Table Data</td>
+        <td>Table Data</td>
+    </tr>
+    <tr>
+        <td>Table Data</td>
+        <td>Table Data</td>
+    </tr>
+</table>
+```
+&gt; 결과
+<table>
+    <tr>
+        <th colspan="3">Table Data</th>
+        <th rowspan="3">Table Data</th>
+    </tr>
+    <tr>
+        <td>Table Data</td>
+        <td rowspan="2">Table Data</td>
+        <td>Table Data</td>
+    </tr>
+    <tr>
+        <td>Table Data</td>
+        <td>Table Data</td>
+    </tr>
+</table>
+
+우선, *colspan* 속성은 테이블에서 column을 병합하는 역할을 합니다.
+`colspan="3"` 으로 3개의 행 데이터가 병합되었습니다.
+이후, *rowspan* 속성은 테이블에서 row를 병합하는 역할로서, `rowspan="3"` 으로 3개의 열 데이터가 병합됩니다.
+따라서, 병합된 셀 위치를 제외하고 `<td>` tag 를 이용하여 데이터를 표현하다보니, `<tr>` 내부의 `<td>` tag 의 개수가 각기 다른 것입니다.
+
+<hr />
+
+다음 포스트에서는 이미지, 오디오, 비디오 tag에 대해서 알아보도록 하겠습니다.
+</td></tr></td></td></th></tr></table></table></table>
+:ET
