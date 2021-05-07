@@ -1,0 +1,292 @@
+I"dL<h1 id="html-기초-빠르게-찍어먹기-4---입력양식-공간분할-tag">HTML 기초 빠르게 찍어먹기 4 - (입력양식, 공간분할 tag)</h1>
+<p>이전 <a href="https://takehoon.github.io/html/2021/04/09/html기초빠르게찍어먹기3.html">HTML 기초 빠르게 찍어먹기 3</a>에서 미디어 tag에 대해서 알아보았습니다. 이번 section에서는 웹페이지 개발에 필수인 입력양식과 공간분할 tag에 대해서 알아보도록 하겠습니다.</p>
+
+<h2 id="1-입력-양식-tag">1. 입력 양식 Tag</h2>
+<p>입력 양식은 서버 개발과 관련이 있습니다. 이 포스트는 HTML 기초 포스트로, 서버 개발과 관련한 내용은 추후에 다루도록 하겠습니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"search"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div>
+<blockquote>
+  <p>결과</p>
+</blockquote>
+
+<form>
+    <input type="text" name="search" />
+    <input type="submit" />
+</form>
+
+<p><code class="language-plaintext highlighter-rouge">&lt;form&gt;</code> tag는 <code class="language-plaintext highlighter-rouge">action</code>과 <code class="language-plaintext highlighter-rouge">method</code>라는 속성이 존재합니다.
+<code class="language-plaintext highlighter-rouge">action</code>은 <code class="language-plaintext highlighter-rouge">&lt;form&gt;</code>tag의 정보가 도착할 장소라면, <code class="language-plaintext highlighter-rouge">method</code>는 해당 방식으로 전달하겠다 라는 뜻입니다.</p>
+
+<h4 id="1-method-get--post">1. Method (GET &amp; POST)</h4>
+<p>이러한 <code class="language-plaintext highlighter-rouge">method</code>에는 <code class="language-plaintext highlighter-rouge">GET</code>과 <code class="language-plaintext highlighter-rouge">POST</code>방법이 존재하며 다음과 같이 표헌합니다.</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">method=</span><span class="s">"get"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"search"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+
+<span class="nt">&lt;form</span> <span class="na">method=</span><span class="s">"post"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"search"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div>
+<p>우선 <code class="language-plaintext highlighter-rouge">GET</code>방식은 URL 뒤에 해당 정보를 binding하여 전송합니다. 예를 들어,
+<code class="language-plaintext highlighter-rouge">url: https://localhost.com:8080/test?search=${text}</code>
+와 같이 <code class="language-plaintext highlighter-rouge">&lt;input&gt;</code> 영역에 입력된 텍스트가 <code class="language-plaintext highlighter-rouge">&lt;input&gt;</code> 의 <code class="language-plaintext highlighter-rouge">name</code>과 함께 binding되어 <code class="language-plaintext highlighter-rouge">action</code> 으로 이동됩니다.</p>
+
+<p>반면, <code class="language-plaintext highlighter-rouge">POST</code>방식은 주소가 아닌 별도로 데이터만을 보내므로, 중요한 정보나 데이터양의 많을 때 사용하기 좋습니다. 즉, 로그인, 회원가입과 같은 양식은 <code class="language-plaintext highlighter-rouge">POST</code>로 작성하는 것이 보안상 좋겠죠..?</p>
+
+<p><br /></p>
+
+<h4 id="2-기본-input-tag">2. 기본 input tag</h4>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"name"</span><span class="nt">/&gt;&lt;br/&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"password"</span> <span class="na">name=</span><span class="s">"password"</span><span class="nt">/&gt;&lt;br/&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div>
+<blockquote>
+  <p>결과</p>
+</blockquote>
+<form>
+    <input type="text" name="name" /><br />
+    <input type="password" name="password" /><input type="submit" />
+</form>
+
+<p>다음과 같이 ID와 password 를 입력받는 양식을 만들어보았습니다. 이 외에도 날짜, 라디오 버튼, 체크 박스 등 다양한 입력 양식을 만들 수 있습니다. 그럼에도 불구하고 전부 기재하지 않는 이유는 다 외울 수 없다고 생각하기 때문입니다. 필요한 기능을 찾고 이를 적재적소에 잘 사용할 수 있으면 된다고 생각하여 여기서는 이 정도만 언급하도록 하겠습니다.</p>
+
+<p><br /></p>
+
+<h4 id="3-textarea-tag">3. Textarea tag</h4>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form&gt;</span>
+    <span class="nt">&lt;textarea&gt;&lt;/textarea&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div>
+<blockquote>
+  <p>결과</p>
+</blockquote>
+<form>
+    <textarea></textarea>
+</form>
+<p><br /></p>
+
+<h4 id="4-select-tag">4. Select tag</h4>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;select&gt;</span>
+    <span class="nt">&lt;option&gt;</span>Apple<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option&gt;</span>Samsung<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option&gt;</span>Kakao<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option&gt;</span>Naver<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;/select&gt;</span>
+</code></pre></div></div>
+<blockquote>
+  <p>결과</p>
+</blockquote>
+
+<p><select>
+    <option>Apple</option>
+    <option>Samsung</option>
+    <option>Kakao</option>
+    <option>Naver</option>
+</select></p>
+
+<p>이 코드에 추가로, 여러 선택지를 선택 가능하게 하기 위해선 <code class="language-plaintext highlighter-rouge">&lt;select&gt;</code> tag에 <code class="language-plaintext highlighter-rouge">multiple</code> 속성 하나를 추가하면 됩니다.</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;select</span> <span class="na">multiple=</span><span class="s">"multiple"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;option&gt;</span>Apple<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option&gt;</span>Samsung<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option&gt;</span>Kakao<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option&gt;</span>Naver<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;/select&gt;</span>
+</code></pre></div></div>
+
+<p>선택지에 그룹을 만들 수도 있습니다. <code class="language-plaintext highlighter-rouge">&lt;optgroup label="labelName"&gt;</code> 을 이용합니다.</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;select&gt;</span>
+    <span class="nt">&lt;optgroup</span> <span class="na">label=</span><span class="s">"Android"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;option&gt;</span>Samsung<span class="nt">&lt;/option&gt;</span>
+        <span class="nt">&lt;option&gt;</span>LG<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;/optgroup&gt;</span>
+    <span class="nt">&lt;optgroup</span> <span class="na">label=</span><span class="s">"IOS"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;option&gt;</span>Apple<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;/optgroup&gt;</span>
+<span class="nt">&lt;/select&gt;</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h4 id="5-fieldset-tag와-legend-tag">5. fieldset tag와 legend tag</h4>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form&gt;</span>
+    <span class="nt">&lt;fieldset</span> <span class="na">style=</span><span class="s">"background-color:grey"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;legend&gt;</span>입력 양식<span class="nt">&lt;/legend&gt;</span>
+        <span class="nt">&lt;table&gt;</span>
+            <span class="nt">&lt;tr&gt;</span>
+                <span class="nt">&lt;td&gt;&lt;label</span> <span class="na">for=</span><span class="s">"name"</span><span class="nt">&gt;</span>이름<span class="nt">&lt;/label&gt;&lt;/td&gt;</span>
+                <span class="nt">&lt;td&gt;&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">"name"</span><span class="nt">/&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;/tr&gt;</span>
+            <span class="nt">&lt;tr&gt;</span>
+                <span class="nt">&lt;td&gt;&lt;label</span> <span class="na">for=</span><span class="s">"mail"</span><span class="nt">&gt;</span>Email<span class="nt">&lt;/label&gt;&lt;/td&gt;</span>
+                <span class="nt">&lt;td&gt;&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">"mail"</span><span class="nt">/&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;/table&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/fieldset&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div>
+<blockquote>
+  <p>결과</p>
+</blockquote>
+
+<form>
+    <fieldset style="background-color:grey">
+        <legend>입력 양식</legend>
+        <table>
+            <tr>
+                <td><label for="name">이름</label></td>
+                <td><input type="text" id="name" /></td>
+            </tr>
+            <tr>
+                <td><label for="mail">Email</label></td>
+                <td><input type="text" id="mail" /></td>
+            </tr>
+        </table>
+        <input type="submit" />
+    </fieldset>
+</form>
+
+<p>기본 <code class="language-plaintext highlighter-rouge">&lt;fieldset&gt;</code> tag는 검은색 선으로 테두리가 생깁니다. 저는 <code class="language-plaintext highlighter-rouge">background-color</code> 속성을 이용하여 <code class="language-plaintext highlighter-rouge">&lt;fieldset&gt;</code>tag의 영역을 보고자 채색해보았습니다.</p>
+
+<p><br /></p>
+
+<h2 id="2-공간-분할-tag">2. 공간 분할 tag</h2>
+<p>공간 분할 tag는 영역을 구성할 때 사용합니다. 헤더 영역, 미디어 영역, info 영역 등 영역에 따라 css를 구분하거나 컨텐츠를 구분하는 등의 작업을 위해 사용됩니다.</p>
+
+<h4 id="1-div-와-span-tag">1. div 와 span tag</h4>
+<p>대표적으로 많이 사용되는 태그는 <code class="language-plaintext highlighter-rouge">&lt;div&gt;</code> 와 <code class="language-plaintext highlighter-rouge">&lt;span&gt;</code> 이 있습니다.
+이 둘의 차이점은, <code class="language-plaintext highlighter-rouge">&lt;div&gt;</code> tag는 block 형식으로 구성되고, <code class="language-plaintext highlighter-rouge">&lt;span&gt;</code> tag는 inline형식이라는 점입니다. 눈으로 직접 살펴보죠.</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div&gt;</span>div tag<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div&gt;</span>div tag<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div&gt;</span>div tag<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div&gt;</span>div tag<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;span&gt;</span>span tag<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span&gt;</span>span tag<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span&gt;</span>span tag<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span&gt;</span>span tag<span class="nt">&lt;/span&gt;</span>
+</code></pre></div></div>
+<blockquote>
+  <p>결과</p>
+</blockquote>
+<div>div tag</div>
+<div>div tag</div>
+<div>div tag</div>
+<div>div tag</div>
+
+<p><span>span tag</span>
+<span>span tag</span>
+<span>span tag</span>
+<span>span tag</span></p>
+
+<p><br /></p>
+
+<h4 id="2-semantic-web">2. Semantic Web</h4>
+<p>HTML5 에서의 가장 큰 변화는 <em>Semantic Web</em>이라고 합니다. 많은 웹페이지들의 그 구조와 형태가 비슷합니다. 또한 사람은 눈으로 영역을 구분할 수 있습니다. 헤더 영역, 로그인 영역 등등 이들을 컴퓨터가 구분하고 빠르고 효율적으로 데이터들을 처리하기 위해 태그에 의미를 부여하는 시도를 하기 시작하였고 이를 <em>semantic web</em>이라고 합니다.</p>
+
+<p>이러한 semaintic tag는 다음과 같습니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tag</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>header</td>
+      <td>헤더</td>
+    </tr>
+    <tr>
+      <td>nav</td>
+      <td>내비게이션바</td>
+    </tr>
+    <tr>
+      <td>aside</td>
+      <td>사이드바</td>
+    </tr>
+    <tr>
+      <td>section</td>
+      <td>중심 내용을 감싸는 부분</td>
+    </tr>
+    <tr>
+      <td>article</td>
+      <td>글자가 많이 들어가는 부분</td>
+    </tr>
+    <tr>
+      <td>footer</td>
+      <td>푸터</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Semantic tag는 <code class="language-plaintext highlighter-rouge">&lt;div&gt;</code>tag와 같은 역할을 수행합니다. 다만 검색 엔진이나 그 이외의 동작들, 또는 다른 개발자들이 웹페이지를 쉽게 이해하는데 의미가 있습니다.</p>
+
+<p>예를 들어,</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;h1&gt;</span>Semantic Web<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;ul&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Menu-1<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Menu-2<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Menu-3<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;div&gt;</span>
+            <span class="nt">&lt;h1&gt;</span>Semantic Web?<span class="nt">&lt;/h1&gt;</span>
+            <span class="nt">&lt;p&gt;</span>semantic web ~~~<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div&gt;</span>
+            <span class="nt">&lt;h1&gt;</span>Takehoon's Story open<span class="nt">&lt;/h1&gt;</span>
+            <span class="nt">&lt;p&gt;</span>Takehoon's Story ~~~<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;span&gt;</span>Copyright~~~<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</code></pre></div></div>
+<p>위와 같이 코드를 작성해도 아무런 문제도 없습니다. 내용도 적어 이해하는데도 어렵지 않죠. 하지만 코드의 양이 방대해지고 이를 유지보수해야하는 상황에서 문제가 어딘지 찾아가기란 쉽지가 않습니다. 따라서 코드를 다음과 같이 바꿔봅니다.</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;header&gt;</span>
+        <span class="nt">&lt;h1&gt;</span>Semantic Web<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;/header&gt;</span>
+    <span class="nt">&lt;nav&gt;</span>
+        <span class="nt">&lt;ul&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Menu-1<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Menu-2<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Menu-3<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/nav&gt;</span>
+    <span class="nt">&lt;section&gt;</span>
+        <span class="nt">&lt;article&gt;</span>
+            <span class="nt">&lt;h1&gt;</span>Semantic Web?<span class="nt">&lt;/h1&gt;</span>
+            <span class="nt">&lt;p&gt;</span>semantic web ~~~<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/article&gt;</span>
+        <span class="nt">&lt;article&gt;</span>
+            <span class="nt">&lt;h1&gt;</span>Takehoon's Story open<span class="nt">&lt;/h1&gt;</span>
+            <span class="nt">&lt;p&gt;</span>Takehoon's Story ~~~<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/article&gt;</span>
+    <span class="nt">&lt;/section&gt;</span>
+    <span class="nt">&lt;footer&gt;</span>
+        <span class="nt">&lt;span&gt;</span>Copyright~~~<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/footer&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</code></pre></div></div>
+<p>어떤가요? 한 눈에 어디가 어디인지 알 수 있을 것 같지 않나요? 포스트에 문제가 있거나 이를 개선하고자 할 때 해당 부분을 바로 찾아갈 수 있을겁니다.</p>
+
+<hr />
+
+<p>이번 포스트를 끝으로 웹페이지의 뼈대를 구성할 수 있게 되었습니다. 이제 살을 붙여 우리의 눈을 즐겁게 만들어 보도록 하겠습니다.</p>
+:ET
