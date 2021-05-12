@@ -1,118 +1,64 @@
-<!DOCTYPE html>
+I"I8<h1 id="javascript-기초-빠르게-찍어먹기-2---객체">Javascript 기초 빠르게 찍어먹기 2 - (객체)</h1>
 
-<html>
+<h2 id="21-개요">2.1 개요</h2>
+<p>Javascript는 객체 기반 언어입니다. 어느 언어와 같이 객체는 기능과 속성을 가지고 있으며 이들을 각각 method 와 property로 부르며 정의하여 사용합니다.</p>
 
-<head>
+<h3 id="211-내장-객체">2.1.1 내장 객체</h3>
+<p>내장 객체는 Javascript 엔진에 내장되어 있어 필요한 경우 생성하여 사용합니다.</p>
+<ul>
+  <li>String</li>
+  <li>Date</li>
+  <li>Array</li>
+  <li>Math</li>
+</ul>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<h3 id="212-브라우저-객체-모델">2.1.2 브라우저 객체 모델</h3>
+<p>BOM 은 브라우저에 계층 구조로 내장되어 있는 객체를 말합니다.</p>
+<ul>
+  <li>window</li>
+  <li>screen</li>
+  <li>location</li>
+  <li>history</li>
+  <li>navigator</li>
+</ul>
 
-  <title>
-    Javascript 기초: 빠르게 찍어먹기 1 - (기초문법) - Takehoon&#39;s Story
-    
-  </title>
+<h3 id="213-문서-객체-모델">2.1.3 문서 객체 모델</h3>
+<p>DOM 은 HTML 문서 구조를 말합니다. IE8 이하에서는 호환성이 떨어지기 때문에 jQuery를 이용한 DOM 을 주로 사용합니다.</p>
 
-  <meta name="description" content="Javascript 기초 빠르게 찍어먹기 1 - (기초문법)">
+<h2 id="22-내장-객체">2.2 내장 객체</h2>
+<h3 id="221-내장-객체-생성하기">2.2.1 내장 객체 생성하기</h3>
+<p>내장 객체를 생성하는 기본형은 <strong><em>new</em></strong> keyword를 통해 이뤄집니다.</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">()</span>
+</code></pre></div></div>
 
-  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-  <link href="http://cdn.jsdelivr.net/gh/joungkyun/font-d2coding/d2coding.css" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+<p>property와 method는 다음과 같이 정의합니다.</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">smartphone</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">()</span>
+<span class="nx">smartphone</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">white</span><span class="dl">"</span>
+<span class="nx">smartphone</span><span class="p">.</span><span class="nx">price</span> <span class="o">=</span> <span class="mi">1200000</span><span class="p">;</span>
+<span class="nx">smartphone</span><span class="p">.</span><span class="nx">on</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">"</span><span class="s2">smartphone on</span><span class="dl">"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><strong><em>color</em></strong> 와 <strong><em>price</em></strong>는 property로서 객체의 속성 정보를 가지고 있으며 <strong><em>on()</em></strong> 은 method로서 객체의 기능에 해당합니다.</p>
 
-  <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
+<h3 id="222--날짜-정보-객체">2.2.2  날짜 정보 객체</h3>
+<p>날짜나 시간 관련 정보를 제공받으려면 <strong><em>Date</em></strong> 객체를 생성하여 이용합니다.</p>
 
-  <link rel="stylesheet" href="/assets/main.css">
-  <link rel="stylesheet" href="/assets/css/syntax.css">
-  <link rel="canonical" href="https://takehoon.github.io/javascript/2021/05/08/javascript%EA%B8%B0%EC%B4%88%EB%B9%A0%EB%A5%B4%EA%B2%8C%EC%B0%8D%EC%96%B4%EB%A8%B9%EA%B8%B01.html">
-  <link rel="alternate" type="application/rss+xml" title="Takehoon&#39;s Story" href="/feed.xml">
+<h3 id="223-수학-객체">2.2.3 수학 객체</h3>
+<p>수학 관련 기능을 사용하기 위해선 <strong><em>Math</em></strong> 객체를 생성하여 이용합니다.</p>
 
-</head>
+<h3 id="224-배열-객체">2.2.4 배열 객체</h3>
+<p>Javascript에서의 배열 객체는 <strong><em>Array</em></strong> 객체를 생성하여 이용합니다. index가 0부터 시작한다는 점도 타언어와 동일하며 <strong><em>[]</em></strong> 를 이용하여 원소에 접근하는 것 또한 동일합니다. 다만, 각 원소의 자료형이 동일할 필요는 없습니다.</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">()</span>
+<span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span>
+<span class="nx">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span>
+</code></pre></div></div>
 
+<p>물론 <strong><em>Array</em></strong> 를 명시적으로 사용하지 않고도 배열 객체를 생성하는 방법도 존재합니다.</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span> <span class="kc">true</span><span class="p">]</span>
+</code></pre></div></div>
 
-<body>
-
-  <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-  <div class="container">
-    <a class="navbar-brand" href="/">Takehoon&#39;s Story</a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      Menu
-      <i class="fa fa-bars"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/categories">Categories</a>
-          <ul>
-            <li><a href="/categories/html">HTML</a></li>
-            <li><a href="/categories/javascript">Javascript</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/contact">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-
-  <!-- Page Header -->
-
-<header class="masthead" style="background-image: url('/img/posts/javascript.jpg')">
-  
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="post-heading">
-            <h1>Javascript 기초: 빠르게 찍어먹기 1 - (기초문법)</h1>
-            
-            <h2 class="subheading">Javascript 기초 정리</h2>
-            
-            <span class="meta">Posted by
-              <a href="#">Takehoon</a>
-              on May 08, 2021 &middot; <span class="reading-time" title="Estimated read time">
-  
-   5 mins  read </span>
-
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-
-        <h1 id="javascript-기초-빠르게-찍어먹기-1---기초문법">Javascript 기초 빠르게 찍어먹기 1 - (기초문법)</h1>
-
-<h2 id="11-개요">1.1 개요</h2>
-<p>Javascript는 Web browser에서 동작하는 script 언어입니다. 즉, FE(Front-End) 개발 언어로서 흔히 정적인 페이지(HTML)에 동작을 부여하는, <em>동적 페이지</em>를 개발하는데 주로 사용됩니다.</p>
-
-<h2 id="12-기초-문법">1.2 기초 문법</h2>
-<h3 id="121-선언문">1.2.1 선언문</h3>
-<p>Javascript 코드를 작성할 영역을 알리기 위해 <code class="language-plaintext highlighter-rouge">&lt;script&gt;&lt;/script&gt;</code>를 이용합니다.</p>
-
-<p>선언문은 <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code> 또는 <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> 영역에 선언할 수 있으며 대게 <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code> 영역에 주로 사용합니다.</p>
-
-<h3 id="122--주석">1.2.2  주석</h3>
-<p>Javascript의 주석은 다른 언어들과 유사하기 <code class="language-plaintext highlighter-rouge">//</code> 또는 <code class="language-plaintext highlighter-rouge">/* */</code> 를 사용합니다.</p>
-
-<h3 id="123-외부코드">1.2.3 외부코드</h3>
-<p>관리, 유지보수 등을 위해 html 파일과 js 파일을 분리하여 개발할 수 있습니다. 따라서 <code class="language-plaintext highlighter-rouge">.js</code> 파일을 별도로 만들어 개발하고 이를 html 페이지에서 <code class="language-plaintext highlighter-rouge">&lt;script src="*.js"&gt;&lt;/script&gt;</code>로 불러와 사용할 수 있습니다.
-<br /></p>
-
-<h2 id="13-변수">1.3 변수</h2>
 <h3 id="131-변수-선언">1.3.1 변수 선언</h3>
 <p>변수를 선언할 때는 <code class="language-plaintext highlighter-rouge">var</code> keyword를 사용합니다. 변수에 저장할 데이터 종류로는 String, Number, Boolean, Null 데이터가 있으나 타 언어와는 달리 <code class="language-plaintext highlighter-rouge">var</code> keyword로 통일하여 사용 가능합니다.</p>
 
@@ -257,87 +203,4 @@ function test(){
 <hr />
 <p>기초 문법을 다룬다고 하였지만, 사실 타언어와 동일한 점이 많아 대부분 건너뛰었습니다. 저의 포스트는 기초적인 부분을 빠르게 넘어가고 실제 소규모 프로젝트를 구성하고 개발하는데 집중하려합니다. Javascript는 FE 개발에 중요하고 배울점도 매우 많기 때문에 기초적인 부분은 앞으로도 생략하도록 하겠습니다.</p>
 
-
-
-        <hr>
-
-        <div class="clearfix">
-          
-          
-          
-          <a class="btn btn-primary float-right" href="/javascript/2021/05/11/javascript%EA%B8%B0%EC%B4%88%EB%B9%A0%EB%A5%B4%EA%B2%8C%EC%B0%8D%EC%96%B4%EB%A8%B9%EA%B8%B02.html" data-toggle="tooltip" data-placement="top" title="Javascript 기초: 빠르게 찍어먹기 2 - (객체)">Next<span class="d-none d-md-inline">
-              Post</span> &rarr;</a>
-          
-
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-
-  <!-- Footer -->
-
-<hr>
-
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <ul class="list-inline text-center">
-          
-          <li class="list-inline-item">
-            <a href="mailto:tuetwo0721@gmail.com">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="far fa-envelope fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          
-          
-          
-          
-          
-          <li class="list-inline-item">
-            <a href="https://github.com/takehoon">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          
-          
-        </ul>
-        <p class="copyright text-muted">Copyright &copy; Takehoon 2021</p>
-      </div>
-    </div>
-  </div>
-</footer>
-
-
-  <script src="/assets/vendor/jquery/jquery.min.js"></script>
-<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/assets/vendor/startbootstrap-clean-blog/js/clean-blog.min.js"></script>
-
-<script src="/assets/scripts.js"></script>
-
-
-
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-XXXXXXXXX-X');
-</script>
-
-
-
-</body>
-
-</html>
+:ET
